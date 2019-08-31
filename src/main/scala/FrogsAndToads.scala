@@ -39,7 +39,89 @@ class PuzzleState private (
     board.slice(emptyLoc + 1, size).forall(_ == Toad)
   }
 
-  // FIXME you might want to add more methods here.
+  /**
+   * Checks if the jumpFromLeft is a legal move. Only Frogs can jump 
+   * from left to right, and not over another Frog. So the second left 
+   * of the emptyLoc must be a Frog and immediate left must be a Toad
+   * 
+   * Creates a new board by slicing the existing board and concatenation the 
+   * new Vector of Empty then Toad (previously there) then Frog since Frog has jumped
+   * to the right.
+   *  
+   * @return the new PuzzleState as an Option
+   */
+  def jumpFromLeft(): Option[PuzzleState] = {
+    if(board(emptyLoc - 2) == Frog && board(emptyLoc - 1) == Toad) {
+      val newBoard = board.slice(0, emptyLoc - 2) ++ Vector(Empty, Toad, Frog) ++ board.slice(emptyLoc + 1, size)
+      val newState = new PuzzleState(newBoard, emptyLoc + 2)
+      Some(newState)
+    }
+    else {
+      None
+    }
+  }
+  
+  /**
+   * Checks if the jumpFromRight is a legal move. Only Toads can jump 
+   * from right to left, and not over another Toad. So the second right 
+   * of the emptyLoc must be a Toad and immediate right must be a Frog
+   * 
+   * Creates a new board by slicing the existing board and concatenation the 
+   * new Vector of Toad then Frog (previously there) then Empty since Toad has jumped
+   * to the left.
+   *  
+   * @return the new PuzzleState as an Option
+   */
+  def jumpFromRight(): Option[PuzzleState] = {
+    if(board(emptyLoc + 2) == Toad && board(emptyLoc + 1) == Frog) {
+      val newBoard = board.slice(0, emptyLoc) ++ Vector(Toad, Frog, Empty) ++ board.slice(emptyLoc + 3, size)
+      val newState = new PuzzleState(newBoard, emptyLoc + 2)
+      Some(newState)
+    }
+    else {
+      None
+    }
+  }
+
+  /**
+   * Checks if the slideFromLeft is a legal move. Only Frogs can slide 
+   * from left to right so the immediate left of the emptyLoc must be a Frog
+   * 
+   * Creates a new board by slicing the existing board and concatenation the 
+   * new Vector of Empty then Frog since Frog has slid to the right.
+   *  
+   * @return the new PuzzleState as an Option
+   */
+  def slideFromLeft(): Option[PuzzleState] = {
+    if(board(emptyLoc - 1) == Frog) {
+      val newBoard = board.slice(0, emptyLoc - 1) ++ Vector(Empty, Frog) ++ board.slice(emptyLoc + 1, size)
+      val newState = new PuzzleState(newBoard, emptyLoc - 1)
+      Some(newState)
+    }
+    else {
+      None
+    }
+  }
+
+  /**
+   * Checks if the slideFromRight is a legal move. Only Toads can slide 
+   * from right to left so the immediate right of the emptyLoc must be a Toad
+   * 
+   * Creates a new board by slicing the existing board and concatenation the 
+   * new Vector of Toad then Empty since Toad has slid to the left.
+   *  
+   * @return the new PuzzleState as an Option
+   */
+  def slideFromRight(): Option[PuzzleState] = {
+    if(board(emptyLoc + 1) == Toad) {
+      val newBoard = board.slice(0, emptyLoc) ++ Vector(Toad, Empty) ++ board.slice(emptyLoc + 2, size)
+      val newState = new PuzzleState(newBoard, emptyLoc + 1)
+      Some(newState)
+    }
+    else {
+      None
+    }
+  }
 }
 
 /**
@@ -89,8 +171,58 @@ object PuzzleState {
     * is found.
     */
   def solve(start: PuzzleState): Seq[PuzzleState] = {
-    // FIXME add your frogs and toads solver code here.
     Seq()
+    /*
+    val curState = start
+
+    curState.jumpFromLeft() match {
+      
+      case Some(newState) =>
+          val newStateSolution = solve(newState)
+          if(newStateSolution == Seq()) {
+              solve(curState)
+          }
+          else {
+            Seq() :: Seq(newStateSolution)
+          }
+      case None =>
+          curState.jumpFromRight() match {
+            case Some(newState) =>
+            val newStateSolution = solve(newState)
+            if(newStateSolution == Seq()) {
+              solve(curState)
+            }
+            else {
+              Seq(curState) :: Seq(newStateSolution)
+            }               
+            case None =>
+                curState.slideFromLeft() match {
+                  case Some(newState) =>
+                  val newStateSolution = solve(newState)
+                  if(newStateSolution == Seq()) {
+                    solve(curState)
+                  }
+                  else {
+                    Seq(curState) :: Seq(newStateSolution)
+                  }                    
+                  case None =>
+                      curState.slideFromRight() match {
+                        case Some(newState) =>
+                        val newStateSolution = solve(newState)
+                        if(newStateSolution == Seq()) {
+                          solve(curState)
+                        }
+                        else {
+                          Seq(curState) :: Seq(newStateSolution)
+                        }                          
+                        // case None =>
+                        //     curState.isTerminalState()
+                        //     Seq()
+                      }
+                }
+          }
+    }
+    */
   }
 
   /**
@@ -104,6 +236,7 @@ object PuzzleState {
     */
   def animate(start: PuzzleState): Seq[Image] = {
     // FIXME add your code here to generate the animation frame sequence.
+    solve(start)
     Seq()
   }
 

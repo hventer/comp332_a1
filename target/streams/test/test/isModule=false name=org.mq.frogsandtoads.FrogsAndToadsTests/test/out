@@ -1,0 +1,6 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mFrogsAndToadsTests:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn puzzle state with 5 frogs and 8 toads:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should have 5 + 8 + 1 = 14 cells[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should have its empty cell at position 5[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be constructed in the initial puzzle state[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be constructed in the terminal puzzle state[0m[0m
