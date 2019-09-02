@@ -1,13 +1,45 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:183:19: value :: is not a member of Seq[Seq[org.mq.frogsandtoads.PuzzleState]][0m
-[0m[[0m[31merror[0m] [0m[0m            Seq() :: Seq(newStateSolution)[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:193:29: value :: is not a member of Seq[Seq[org.mq.frogsandtoads.PuzzleState]][0m
-[0m[[0m[31merror[0m] [0m[0m              Seq(curState) :: Seq(newStateSolution)[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:237:27: no arguments allowed for nullary method jumpFromLeft: ()Option[org.mq.frogsandtoads.PuzzleState][0m
+[0m[[0m[31merror[0m] [0m[0m    curState.jumpFromLeft(state) match {[0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:239:17: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: org.mq.frogsandtoads.PuzzleState[0m
+[0m[[0m[31merror[0m] [0m[0m          solve(newState) match {[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:241:38: not found: value state[0m
+[0m[[0m[31merror[0m] [0m[0m            case list  => return Seq(state) ++ list[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:246:29: no arguments allowed for nullary method jumpFromLeft: ()Option[org.mq.frogsandtoads.PuzzleState][0m
+[0m[[0m[31merror[0m] [0m[0m      curState.jumpFromLeft(state) match {[0m
 [0m[[0m[31merror[0m] [0m[0m                            ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:203:35: value :: is not a member of Seq[Seq[org.mq.frogsandtoads.PuzzleState]][0m
-[0m[[0m[31merror[0m] [0m[0m                    Seq(curState) :: Seq(newStateSolution)[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:213:41: value :: is not a member of Seq[Seq[org.mq.frogsandtoads.PuzzleState]][0m
-[0m[[0m[31merror[0m] [0m[0m                          Seq(curState) :: Seq(newStateSolution)[0m
-[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
-[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:248:19: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: org.mq.frogsandtoads.PuzzleState[0m
+[0m[[0m[31merror[0m] [0m[0m            solve(newState) match {[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:250:40: not found: value state[0m
+[0m[[0m[31merror[0m] [0m[0m              case list  => return Seq(state) ++ list[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:255:31: no arguments allowed for nullary method jumpFromLeft: ()Option[org.mq.frogsandtoads.PuzzleState][0m
+[0m[[0m[31merror[0m] [0m[0m        curState.jumpFromLeft(state) match {[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:257:21: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: org.mq.frogsandtoads.PuzzleState[0m
+[0m[[0m[31merror[0m] [0m[0m              solve(newState) match {[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:259:42: not found: value state[0m
+[0m[[0m[31merror[0m] [0m[0m                case list  => return Seq(state) ++ list[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:264:33: no arguments allowed for nullary method jumpFromLeft: ()Option[org.mq.frogsandtoads.PuzzleState][0m
+[0m[[0m[31merror[0m] [0m[0m          curState.jumpFromLeft(state) match {[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:266:23: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: org.mq.frogsandtoads.PuzzleState[0m
+[0m[[0m[31merror[0m] [0m[0m                solve(newState) match {[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/src/main/scala/FrogsAndToads.scala:268:44: not found: value state[0m
+[0m[[0m[31merror[0m] [0m[0m                  case list  => return Seq(state) ++ list[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m12 errors found[0m

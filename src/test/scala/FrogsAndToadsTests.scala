@@ -24,26 +24,77 @@ class FrogsAndToadsTests extends FlatSpec with Matchers {
 
   import PuzzleState._
 
-  // Tests of an empty B-tree
-
-  "An puzzle state with 5 frogs and 8 toads:" should
+  //Testing Puzzle State Construction
+  "A puzzle state with 5 frogs and 8 toads:" should
     "have 5 + 8 + 1 = 14 cells" in {
     assert(PuzzleState(5, 8).size == 14)
   }
-
   it should "have its empty cell at position 5" in {
     assertResult(5) {
       PuzzleState(5, 8).emptyLoc
     }
   }
-
   it should "be constructed in the initial puzzle state" in {
     assert(PuzzleState(5, 8).isInitialState())
   }
-
   it should "not be constructed in the terminal puzzle state" in {
     assert(!PuzzleState(5, 8).isTerminalState())
   }
+  it should "have initial state as [F|F|F|F|F| |T|T|T|T|T|T|T|T]" in {
+    assertResult("[F|F|F|F|F| |T|T|T|T|T|T|T|T]") {
+      PuzzleState(5,8).toString()
+    }
+  }
 
-  // FIXME Add more tests here.
+  //Testing slide and jump
+  "The puzzle state obtained by sliding a single frog" should
+  "have 3 frogs, a space, a frog, and 4 toads" in {
+    assertResult("[F|F|F| |F|T|T|T|T]") {
+      PuzzleState(4,4).slideFromLeft.get.toString()
+    }
+  }
+  "The puzzle state obtained by sliding a single toad" should
+  "have 4 frogs, a toad, a space, and 3 toads" in {
+    assertResult("[F|F|F|F|T| |T|T|T]") {
+      PuzzleState(4,4).slideFromRight.get.toString()
+    }
+  }
+  "The puzzle state obtained by making an invalid frog jump" should
+  "return None" in {
+    assertResult(None) {
+      PuzzleState(4,4).jumpFromLeft()
+    }
+  }
+  "The puzzle state obtained by making an invalid toad jump" should
+  "return None" in {
+    assertResult(None) {
+      PuzzleState(4,4).jumpFromRight()
+    }
+  }
+  "Applying jumpFromLeft to the state [F|T| |F|T]" should
+  "be legal and produce the state [ |T|F|F|T]" in {
+    assertResult(Some("[ |T|F|F|T]")) {
+      PuzzleState("[F|T| |F|T]").jumpFromLeft().map(_.toString())
+    }
+  }
+  "Applying jumpFromLeft to the state [T|F| |T|F]" should
+  "be illegal" in {
+    assertResult(None) {
+      PuzzleState("[T|F| |T|F]").jumpFromLeft()
+    }
+  }
+  "Applying jumpFromRight to the state [F|T| |F|T]" should
+  "be legal and produce the state [F|T|T|F| ]" in {
+    assertResult(Some("[F|T|T|F| ]")) {
+      PuzzleState("[F|T| |F|T]").jumpFromRight().map(_.toString())
+    }
+  }
+  "Applying jumpFromRight to the state [T|F| |T|F]" should
+  "be illegal" in {
+    assertResult(None) {
+      PuzzleState("[T|F| |T|F]").jumpFromRight()
+    }
+  }
+
+  
 }

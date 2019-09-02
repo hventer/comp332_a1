@@ -3,3 +3,25 @@ test
 compile
 test
 compile
+console
+exit
+console
+test
+console
+compile
+console
+compile
+console
+compile
+console
+test
+console
+test
+exit
+test
+console
+import doodle.core._
+import doodle.syntax._
+console
+exit
+compile

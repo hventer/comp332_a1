@@ -1,6 +1,6 @@
 #FileLock
-#Sat Aug 31 12:30:57 AEST 2019
-hostName=hanness-mbp.modem
-id=16ce582e79a9c2af4fa6377e7dfcac3abd5a3e4d516
+#Mon Sep 02 14:03:21 AEST 2019
+hostName=10.126.168.249
+id=16cf0243920492d1fbfaee25c3c7620630d60360c11
 method=file
-server=192.168.0.215\:51112
+server=10.126.168.249\:58528

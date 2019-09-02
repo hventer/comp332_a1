@@ -13,6 +13,8 @@ package org.mq.frogsandtoads
 import doodle.core._
 import doodle.syntax._
 import doodle.image._
+//import java.awt.Image
+
 
 /**
   * A puzzle state is given as a 1-dimensional array of cell values.
@@ -21,6 +23,8 @@ class PuzzleState private (
     board: Vector[PuzzleState.Cell],
     loc: Int
 ) {
+
+  override def toString() = "[" ++ board.map(_.toString).reduceLeft(_ ++ "|" ++ _) + "]"
 
   import PuzzleState._
 
@@ -128,12 +132,20 @@ class PuzzleState private (
   * Companion object for the [[PuzzleState]] class, provides a public constructor.
   */
 object PuzzleState {
+  import scala.util.matching.Regex
 
   /**
     * Case class for case objects to represent the possible contents of a
     * cell in the puzzle.
     */
-  sealed abstract class Cell
+  sealed abstract class Cell {
+    override def toString(): String = 
+        this match {
+            case Frog  => "F"
+            case Toad  => "T"
+            case Empty => " "
+        }
+  }
   case object Frog extends Cell
   case object Toad extends Cell
   case object Empty extends Cell
@@ -161,6 +173,54 @@ object PuzzleState {
     )
   }
 
+  /*
+   * Regular expression for stripping a pair of square brackets off
+   * of either end of a string.
+   */
+  val brackReg: Regex = """^\s*\[(.*)\]\s*$""".r
+
+  /**
+    * Construct a [[PuzzleState]] object by parsing a string representation
+    * consisting of the symbols `F`, `T` and `<space>` separated by pipes `|`
+    * and surrounded by square brackets.
+    *
+    * This must contain at least one `F`, at least one `T` and exactly one
+    * `<space>`, otherwise an exception is raised.
+    *
+    * This apply method is inverse, in the manifest sese, to the pretty
+    * printing [[PuzzleState#toString]] method.
+    *
+    * @param str the string to be parsed into a [[PuzzleState]] object.
+    */
+  def apply(str: String): PuzzleState = {
+    val brackReg(s) = str
+    val board: Vector[Cell] = s
+      .split('|')
+      .map(
+        s =>
+          s.trim match {
+            case "F" => Frog
+            case "T" => Toad
+            case ""  => Empty
+            case s =>
+              throw new Exception("Unexpected cell contents '" + s + "'.")
+          }
+      )
+      .toVector
+
+    if (board.count(_ == Frog) < 1)
+      throw new Exception("A puzzle state must have at least one frog.")
+
+    if (board.count(_ == Toad) < 1)
+      throw new Exception("A puzzle state must have at least one toad.")
+
+    if (board.count(_ == Empty) != 1)
+      throw new Exception("A puzzle state must have one empty cell.")
+
+    new PuzzleState(board, board.indexOf(Empty))
+
+  }
+
   /**
     * Find a sequence of legal moves of the frogs and toads puzzle from a specified starting
     * [[PuzzleState]] to the terminal [[PuzzleState]].
@@ -171,58 +231,46 @@ object PuzzleState {
     * is found.
     */
   def solve(start: PuzzleState): Seq[PuzzleState] = {
-    Seq()
-    /*
     val curState = start
 
+    
     curState.jumpFromLeft() match {
-      
       case Some(newState) =>
-          val newStateSolution = solve(newState)
-          if(newStateSolution == Seq()) {
-              solve(curState)
+          solve(newState) match {
+            case Seq() => //try the next move
+            case list  => return Seq(curState) ++ list
           }
-          else {
-            Seq() :: Seq(newStateSolution)
-          }
-      case None =>
-          curState.jumpFromRight() match {
-            case Some(newState) =>
-            val newStateSolution = solve(newState)
-            if(newStateSolution == Seq()) {
-              solve(curState)
-            }
-            else {
-              Seq(curState) :: Seq(newStateSolution)
-            }               
-            case None =>
-                curState.slideFromLeft() match {
-                  case Some(newState) =>
-                  val newStateSolution = solve(newState)
-                  if(newStateSolution == Seq()) {
-                    solve(curState)
-                  }
-                  else {
-                    Seq(curState) :: Seq(newStateSolution)
-                  }                    
-                  case None =>
-                      curState.slideFromRight() match {
-                        case Some(newState) =>
-                        val newStateSolution = solve(newState)
-                        if(newStateSolution == Seq()) {
-                          solve(curState)
-                        }
-                        else {
-                          Seq(curState) :: Seq(newStateSolution)
-                        }                          
-                        // case None =>
-                        //     curState.isTerminalState()
-                        //     Seq()
-                      }
-                }
-          }
+      case None => //try the next move
     }
-    */
+
+    curState.jumpFromLeft() match {
+      case Some(newState) =>
+          solve(newState) match {
+            case Seq() => //try the next move
+            case list  => return Seq(curState) ++ list
+          }
+      case None => //try the next move
+    }
+
+    curState.jumpFromLeft() match {
+        case Some(newState) =>
+            solve(newState) match {
+              case Seq() => //try the next move
+              case list  => return Seq(curState) ++ list
+            }
+        case None => //try the next move
+    }
+
+    curState.jumpFromLeft() match {
+      case Some(newState) =>
+          solve(newState) match {
+              case Seq() => //return empty Seq()
+              case list  => return Seq(curState) ++ list
+          }
+      case None => //return empty Seq()
+    }
+
+    return Seq()
   }
 
   /**
@@ -236,8 +284,37 @@ object PuzzleState {
     */
   def animate(start: PuzzleState): Seq[Image] = {
     // FIXME add your code here to generate the animation frame sequence.
-    solve(start)
+    val solution = solve(start)
+
+    
+    val images: Seq[Image] =
+    Seq
+      .fromIterable(
+        solution.flatMap(Seq.fill(20)(_))
+      )
+      .map(Image.compile)
+
+    solution.foreach { e =>
+
+    }
+    val str = solution(1).toString()
+    val brackReg(s) = str
+    val board: Vector[Image] = s
+      .split('|')
+      .map(
+        s =>
+          s.trim match {
+            case "F" => Image.circle(10)
+            case "T" => Image.circle(10)
+            case ""  => Image.circle(10)
+            case s =>
+              throw new Exception("Unexpected cell contents '" + s + "'.")
+          }
+      )
+      .toVector
+      
     Seq()
+
   }
 
   /**

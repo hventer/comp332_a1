@@ -1,6 +1,23 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mFrogsAndToadsTests:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mAn puzzle state with 5 frogs and 8 toads:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mA puzzle state with 5 frogs and 8 toads:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should have 5 + 8 + 1 = 14 cells[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should have its empty cell at position 5[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be constructed in the initial puzzle state[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should not be constructed in the terminal puzzle state[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should have initial state as [F|F|F|F|F| |T|T|T|T|T|T|T|T][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mThe puzzle state obtained by sliding a single frog[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should have 3 frogs, a space, a frog, and 4 toads[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mThe puzzle state obtained by sliding a single toad[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should have 4 frogs, a toad, a space, and 3 toads[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mThe puzzle state obtained by making an invalid frog jump[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return None[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mThe puzzle state obtained by making an invalid toad jump[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return None[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromLeft to the state [F|T| |F|T][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be legal and produce the state [ |T|F|F|T][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromLeft to the state [T|F| |T|F][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be illegal[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromRight to the state [F|T| |F|T][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be legal and produce the state [F|T|T|F| ][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromRight to the state [T|F| |T|F][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be illegal[0m[0m
