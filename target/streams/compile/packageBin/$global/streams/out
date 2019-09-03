@@ -1,0 +1,25 @@
+[0m[[0m[0minfo[0m] [0m[0mPackaging /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/comp332-assignment1_2.12-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads/PuzzleState$Empty$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads/PuzzleState$Empty$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads/PuzzleState$Frog$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads/PuzzleState$Frog$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads/PuzzleState.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads/PuzzleState.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads/PuzzleState$Toad$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads/PuzzleState$Toad$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads/PuzzleState$Cell.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads/PuzzleState$Cell.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads/PuzzleState$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads/PuzzleState$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	org/mq/frogsandtoads/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/hannesventer/OneDrive - Macquarie University/Uni Work/2019 S2/COMP332/Assignment 1/comp332_a1/target/scala-2.12/classes/org/mq/frogsandtoads/Main.class[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m

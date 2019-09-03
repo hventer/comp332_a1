@@ -15,9 +15,117 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return None[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromLeft to the state [F|T| |F|T][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be legal and produce the state [ |T|F|F|T][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromLeft to the state [F|F|F|F|T| |T|T|T][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be legal and produce the state [F|F|F| |T|F|T|T|T][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromLeft to the state [T|F| |T|F][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be illegal[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromRight to the state [F|T| |F|T][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be legal and produce the state [F|T|T|F| ][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromRight to the state [T|F| |T|F][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be illegal[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCalling the solve method on a PuzzleState[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution (1, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(1, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(2, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(3, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(4, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(5, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(6, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(7, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(8, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(9, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 2)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 3)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 5)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 6)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 7)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 8)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 9)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution(10, 10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCalling the solve method on a 4,4 PuzzleState[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCalling the solve method on a 5,6 PuzzleState[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should find a solution[0m[0m

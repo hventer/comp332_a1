@@ -18,10 +18,9 @@ object Main {
   import doodle.core._
   import doodle.image._
   import doodle.java2d._
-  import monix.reactive.Observable
+  import monix.reactive._
   import doodle.java2d.effect._
   import doodle.interact.syntax._
-  import doodle.effect.Writer.Gif
 
   /**
     * Animate a list of images in a shrink-to-fit window.
@@ -51,6 +50,6 @@ object Main {
     * the command line.
     */
   def main(args: Array[String]) {
-    runAnimation("Frogs and Toads", PuzzleState.animate(5, 8))
+    runAnimation("Frogs and Toads", PuzzleState.animate(10, 10))
   }
 }

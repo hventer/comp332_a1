@@ -13,7 +13,6 @@ package org.mq.frogsandtoads
 import doodle.core._
 import doodle.syntax._
 import doodle.image._
-//import java.awt.Image
 
 
 /**
@@ -42,6 +41,27 @@ class PuzzleState private (
     board(emptyLoc) == Empty &&
     board.slice(emptyLoc + 1, size).forall(_ == Toad)
   }
+  
+  
+  def toImage() : Image = boardImage(board);
+  
+  val box = Image.rectangle(40, 40)
+  def boardImage(brd: Vector[PuzzleState.Cell]) : Image = {
+    brd match {
+      case hd +: tl => {
+        val colouredBox = {
+          hd match {
+            case Frog  => box.fillColor(Color.green)
+            case Toad  => box.fillColor(Color.brown)
+            case Empty => box.fillColor(Color.white)
+          }
+        }
+        boardImage(tl) beside colouredBox 
+      }
+      case _ => Image.rectangle(0,0)
+    }
+  }
+  
 
   /**
    * Checks if the jumpFromLeft is a legal move. Only Frogs can jump 
@@ -55,14 +75,17 @@ class PuzzleState private (
    * @return the new PuzzleState as an Option
    */
   def jumpFromLeft(): Option[PuzzleState] = {
-    if(board(emptyLoc - 2) == Frog && board(emptyLoc - 1) == Toad) {
-      val newBoard = board.slice(0, emptyLoc - 2) ++ Vector(Empty, Toad, Frog) ++ board.slice(emptyLoc + 1, size)
-      val newState = new PuzzleState(newBoard, emptyLoc + 2)
-      Some(newState)
+    try { 
+      if(board(emptyLoc - 2) == Frog && board(emptyLoc - 1) == Toad) {
+        val newBoard = board.slice(0, emptyLoc - 2) ++ Vector(Empty, Toad, Frog) ++ board.slice(emptyLoc + 1, size)
+        val newState = new PuzzleState(newBoard, emptyLoc - 2)
+        return Some(newState)
+      }
+      else return None
     }
-    else {
-      None
-    }
+    catch { 
+        case x: IndexOutOfBoundsException => return None       
+      }
   }
   
   /**
@@ -77,13 +100,16 @@ class PuzzleState private (
    * @return the new PuzzleState as an Option
    */
   def jumpFromRight(): Option[PuzzleState] = {
-    if(board(emptyLoc + 2) == Toad && board(emptyLoc + 1) == Frog) {
-      val newBoard = board.slice(0, emptyLoc) ++ Vector(Toad, Frog, Empty) ++ board.slice(emptyLoc + 3, size)
-      val newState = new PuzzleState(newBoard, emptyLoc + 2)
-      Some(newState)
+    try { 
+      if(board(emptyLoc + 2) == Toad && board(emptyLoc + 1) == Frog) {
+        val newBoard = board.slice(0, emptyLoc) ++ Vector(Toad, Frog, Empty) ++ board.slice(emptyLoc + 3, size)
+        val newState = new PuzzleState(newBoard, emptyLoc + 2)
+        return Some(newState)
+      }
+      else return None
     }
-    else {
-      None
+    catch { 
+      case x: IndexOutOfBoundsException => return None       
     }
   }
 
@@ -97,13 +123,16 @@ class PuzzleState private (
    * @return the new PuzzleState as an Option
    */
   def slideFromLeft(): Option[PuzzleState] = {
-    if(board(emptyLoc - 1) == Frog) {
-      val newBoard = board.slice(0, emptyLoc - 1) ++ Vector(Empty, Frog) ++ board.slice(emptyLoc + 1, size)
-      val newState = new PuzzleState(newBoard, emptyLoc - 1)
-      Some(newState)
+    try {
+      if(board(emptyLoc - 1) == Frog) {
+        val newBoard = board.slice(0, emptyLoc - 1) ++ Vector(Empty, Frog) ++ board.slice(emptyLoc + 1, size)
+        val newState = new PuzzleState(newBoard, emptyLoc - 1)
+        return Some(newState)
+      }
+      else return None
     }
-    else {
-      None
+    catch { 
+      case x: IndexOutOfBoundsException => return None       
     }
   }
 
@@ -117,16 +146,20 @@ class PuzzleState private (
    * @return the new PuzzleState as an Option
    */
   def slideFromRight(): Option[PuzzleState] = {
-    if(board(emptyLoc + 1) == Toad) {
-      val newBoard = board.slice(0, emptyLoc) ++ Vector(Toad, Empty) ++ board.slice(emptyLoc + 2, size)
-      val newState = new PuzzleState(newBoard, emptyLoc + 1)
-      Some(newState)
+    try {
+      if(board(emptyLoc + 1) == Toad) {
+        val newBoard = board.slice(0, emptyLoc) ++ Vector(Toad, Empty) ++ board.slice(emptyLoc + 2, size)
+        val newState = new PuzzleState(newBoard, emptyLoc + 1)
+        return Some(newState)
+      }
+      else return None
     }
-    else {
-      None
+    catch { 
+      case x: IndexOutOfBoundsException => return None       
     }
   }
 }
+
 
 /**
   * Companion object for the [[PuzzleState]] class, provides a public constructor.
@@ -233,14 +266,8 @@ object PuzzleState {
   def solve(start: PuzzleState): Seq[PuzzleState] = {
     val curState = start
 
-    
-    curState.jumpFromLeft() match {
-      case Some(newState) =>
-          solve(newState) match {
-            case Seq() => //try the next move
-            case list  => return Seq(curState) ++ list
-          }
-      case None => //try the next move
+    if(curState.isTerminalState()) {
+      return Seq(curState)
     }
 
     curState.jumpFromLeft() match {
@@ -252,24 +279,32 @@ object PuzzleState {
       case None => //try the next move
     }
 
-    curState.jumpFromLeft() match {
-        case Some(newState) =>
-            solve(newState) match {
+    curState.jumpFromRight() match {
+      case Some(newState) =>
+          solve(newState) match {
+            case Seq() => //try the next move
+            case list  => return Seq(curState) ++ list
+          }
+      case None => //try the next move
+    }
+
+    curState.slideFromRight() match {
+      case Some(newState) =>
+          solve(newState) match {
               case Seq() => //try the next move
               case list  => return Seq(curState) ++ list
-            }
-        case None => //try the next move
-    }
-
-    curState.jumpFromLeft() match {
-      case Some(newState) =>
-          solve(newState) match {
-              case Seq() => //return empty Seq()
-              case list  => return Seq(curState) ++ list
           }
-      case None => //return empty Seq()
+      case None => //try the next move
     }
 
+    curState.slideFromLeft() match {
+        case Some(newState) =>
+            solve(newState) match {
+              case Seq() => //return Seq()
+              case list  => return Seq(curState) ++ list
+            }
+        case None =>  //return Seq()
+    }
     return Seq()
   }
 
@@ -283,38 +318,8 @@ object PuzzleState {
     * passed through in the transit from the `start` state to the terminal state.
     */
   def animate(start: PuzzleState): Seq[Image] = {
-    // FIXME add your code here to generate the animation frame sequence.
     val solution = solve(start)
-
-    
-    val images: Seq[Image] =
-    Seq
-      .fromIterable(
-        solution.flatMap(Seq.fill(20)(_))
-      )
-      .map(Image.compile)
-
-    solution.foreach { e =>
-
-    }
-    val str = solution(1).toString()
-    val brackReg(s) = str
-    val board: Vector[Image] = s
-      .split('|')
-      .map(
-        s =>
-          s.trim match {
-            case "F" => Image.circle(10)
-            case "T" => Image.circle(10)
-            case ""  => Image.circle(10)
-            case s =>
-              throw new Exception("Unexpected cell contents '" + s + "'.")
-          }
-      )
-      .toVector
-      
-    Seq()
-
+    return solution.map(_.toImage())
   }
 
   /**
@@ -326,6 +331,4 @@ object PuzzleState {
     */
   def animate(frogs: Int, toads: Int): Seq[Image] =
     animate(PuzzleState(frogs, toads))
-
-  //FIXME You might want to add some (private) auxiliary functions here.
 }
