@@ -60,3 +60,11 @@ test
 compile
 test
 exit
+run
+exit
+run
+test
+exit
+sbt
+run
+exit

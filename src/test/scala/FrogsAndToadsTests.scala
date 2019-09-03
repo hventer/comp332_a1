@@ -86,6 +86,12 @@ class FrogsAndToadsTests extends FlatSpec with Matchers {
       PuzzleState("[F|F|F|F|T| |T|T|T]").jumpFromLeft().map(_.toString())
     }
   }
+  "Applying jumpFromLeft to the state [ |F|F|F|T|F|T|T|T]" should
+  "be illegal" in {
+    assertResult(None) {
+      PuzzleState("[ |F|F|F|T|F|T|T|T]").jumpFromLeft()
+    }
+  }
   "Applying jumpFromLeft to the state [T|F| |T|F]" should
   "be illegal" in {
     assertResult(None) {
@@ -96,6 +102,12 @@ class FrogsAndToadsTests extends FlatSpec with Matchers {
   "be legal and produce the state [F|T|T|F| ]" in {
     assertResult(Some("[F|T|T|F| ]")) {
       PuzzleState("[F|T| |F|T]").jumpFromRight().map(_.toString())
+    }
+  }
+  "Applying jumpFromRight to the state [F|F|F|F|T|T|T|T| ]" should
+  "be illegal" in {
+    assertResult(None) {
+      PuzzleState("[F|F|F|F|T|T|T|T| ]").jumpFromRight()
     }
   }
   "Applying jumpFromRight to the state [T|F| |T|F]" should
@@ -142,6 +154,7 @@ class FrogsAndToadsTests extends FlatSpec with Matchers {
  }
 
 
+ //Animation
   /*
 val box = Image.rectangle(40, 40)
 val image = box.fillColor(Color.green) beside box.fillColor(Color.green) beside box.fillColor(Color.white) beside box.fillColor(Color.brown) beside box.fillColor(Color.brown)

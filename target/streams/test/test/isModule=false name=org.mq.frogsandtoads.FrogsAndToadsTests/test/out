@@ -17,10 +17,14 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be legal and produce the state [ |T|F|F|T][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromLeft to the state [F|F|F|F|T| |T|T|T][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be legal and produce the state [F|F|F| |T|F|T|T|T][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromLeft to the state [ |F|F|F|T|F|T|T|T][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be illegal[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromLeft to the state [T|F| |T|F][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be illegal[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromRight to the state [F|T| |F|T][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be legal and produce the state [F|T|T|F| ][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromRight to the state [F|F|F|F|T|T|T|T| ][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be illegal[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mApplying jumpFromRight to the state [T|F| |T|F][0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should be illegal[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCalling the solve method on a PuzzleState[0m[0m
